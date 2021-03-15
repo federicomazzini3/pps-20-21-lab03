@@ -29,4 +29,5 @@ object Task2 {
   /* Implementation with external condition */
   def getAllCoursesWithExternalCondition(personList: List[Person]): List[String] = flatMap(filter(personList)(onlyTeacherCondition))(onlyCourseFromTeacherCondition)
 
+
 }

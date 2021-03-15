@@ -12,12 +12,6 @@ import u03.Lists.List.Cons
 
 object Task2Test {
 
-  @Test def testMax(){
-    assertEquals(Option.Some(30), max(lst));
-    assertEquals(Option.Some(0), max(lst2));
-    assertEquals(Option.None(), max(List.Nil()))
-  }
-
   @Test def testGetAllCourses{
     val mario  = Student("Mario", 1998)
     val luigi = Teacher("Luigi", "Matematica")
@@ -27,4 +21,6 @@ object Task2Test {
     assertEquals(Cons("Matematica", Cons("Italiano", List.Nil())), getAllCoursesWithExternalCondition(List.Cons(mario, Cons(luigi, Cons(silvia, List.Nil())))))
     assertEquals(List.Nil(), getAllCourses(List.Cons(mario, List.Nil())))
   }
+
+
 }

@@ -3,6 +3,7 @@ package lab
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import lab.Task1._
+import u02.Optionals.Option
 import u03.Lists.List
 import u03.Lists.List.Cons
 
@@ -32,5 +33,11 @@ object Task1Test {
 
   @Test def testFilter(){
     assertEquals(Cons(10,Cons(20, List.Nil())), filter(lst)(_<30))
+  }
+
+  @Test def testMax(){
+    assertEquals(Option.Some(30), max(lst));
+    assertEquals(Option.Some(0), max(lst2));
+    assertEquals(Option.None(), max(List.Nil()))
   }
 }
