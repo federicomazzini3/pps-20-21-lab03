@@ -4,7 +4,7 @@ import u03.Lists.List.{Cons, Nil, append}
 import u03.Lists._
 import u02.Optionals._
 
-object Lists {
+object Task1 {
 
   def drop[A](l: List[A], n: Int): List[A] = l match {
     case Cons(_, t) if (n > 0) => drop(t, n - 1)
