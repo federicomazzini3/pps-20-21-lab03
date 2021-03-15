@@ -1,5 +1,5 @@
 package lab
-import u03.Lists.List.{Cons, append}
+import u03.Lists.List.{Cons, Nil, append}
 import u03.Lists._
 
 object Lists {
@@ -14,6 +14,6 @@ def drop[A](l: List[A], n: Int): List[A] = l match {
     case List.Nil() => List.Nil()
   }
 
-
+  def map[A,B](l: List[A])(mapper: A=>B): List[B] = flatMap(l)(a => Cons(mapper(a),List.Nil()))
 
 }

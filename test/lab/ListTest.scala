@@ -22,7 +22,12 @@ object ListTest {
 
   @Test def testFlatMap() {
     assertEquals(Cons(11,Cons(21,Cons(31,List.Nil()))), flatMap(lst)(v => Cons(v + 1 , List.Nil())))
-    assertEquals(Cons(11,Cons(21,Cons(31,List.Nil()))), flatMap(lst)(v => Cons(v+1, Cons(v+2, List.Nil()))))
+    assertEquals(Cons(11,Cons(12,Cons(21,Cons(22,Cons(31,Cons(32,List.Nil())))))), flatMap(lst)(v => Cons(v+1, Cons(v+2, List.Nil()))))
+  }
+
+  @Test def testMap(){
+    assertEquals(Cons(11,Cons(21,Cons(31,List.Nil()))), map(lst)(_+1))
+
   }
 
 }
