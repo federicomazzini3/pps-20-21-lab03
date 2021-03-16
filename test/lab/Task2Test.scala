@@ -1,19 +1,16 @@
 package lab
 
-import lab.Task1Test.{lst, lst2}
-import lab.Task1.max
 import lab.Task2._
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import u02.Optionals.Option
 import u02.SumTypes.{Student, Teacher}
 import u03.Lists.List
 import u03.Lists.List.Cons
 
 object Task2Test {
 
-  @Test def testGetAllCourses{
-    val mario  = Student("Mario", 1998)
+  @Test def testGetAllCourses {
+    val mario = Student("Mario", 1998)
     val luigi = Teacher("Luigi", "Matematica")
     val silvia = Teacher("Silvia", "Italiano")
 
@@ -22,5 +19,18 @@ object Task2Test {
     assertEquals(List.Nil(), getAllCourses(List.Cons(mario, List.Nil())))
   }
 
+  @Test def testFoldLeft {
+    val lst = Cons(3,Cons(7, Cons(1, Cons(5, List.Nil()))))
+    val emptyLst = List.Nil[Int]()
+    assertEquals(-16,foldLeft(lst)(0)(_-_))
+    assertEquals(0,foldLeft(emptyLst)(0)(_-_))
+  }
+
+  @Test def testFoldRight{
+    val lst = Cons(3,Cons(7, Cons(1, Cons(5, List.Nil()))))
+    val emptyLst = List.Nil[Int]()
+    assertEquals(-8, foldRight(lst)(0)(_-_))
+    assertEquals(0, foldRight(emptyLst)(0)(_-_))
+  }
 
 }
