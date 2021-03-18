@@ -10,6 +10,7 @@ import u03.Streams.Stream
 
 object Task3Test {
 
+  /* ex 5 test */
   @Test
   def testDrop1 {
     val s = Stream.take(Stream.iterate(0)(_ + 1))(10)
@@ -18,12 +19,14 @@ object Task3Test {
     assertEquals(Stream.toList(Stream.empty[Int]()), Stream.toList(Stream.drop(s)(100)))
   }
 
+  /* ex 6 test */
   @Test
   def testDropEmptyStream {
     val s = Stream.empty[Int]()
     assertEquals(Stream.toList(Stream.empty[Int]()), Stream.toList(Stream.drop(s)(6)))
   }
 
+  /* ex 7 test */
   @Test
   def testConstant {
     var expected = Cons("x", Cons("x", Cons("x", Cons("x", Cons("x", List.Nil())))))

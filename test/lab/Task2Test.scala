@@ -9,6 +9,7 @@ import u03.Lists.List.Cons
 
 object Task2Test {
 
+  /* ex 3 test */
   @Test def testGetAllCourses {
     val mario = Student("Mario", 1998)
     val luigi = Teacher("Luigi", "Matematica")
@@ -21,6 +22,7 @@ object Task2Test {
     assertEquals(List.Nil(), getAllCourses(List.Cons(mario, List.Nil())))
   }
 
+  /* ex 4 test */
   @Test def testFoldLeft {
     val lst = Cons(3, Cons(7, Cons(1, Cons(5, List.Nil()))))
     val emptyLst = List.Nil[Int]()
