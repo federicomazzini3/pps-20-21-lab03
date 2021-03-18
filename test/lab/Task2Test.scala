@@ -22,11 +22,12 @@ object Task2Test {
     assertEquals(List.Nil(), getAllCourses(List.Cons(mario, List.Nil())))
   }
 
+  /* ex 3 variant A test */
   @Test def testGetAllCoursesVariantA {
-
     assertEquals(allCourses, getAllCoursesWithExternalCondition(people))
   }
 
+  /* ex 3 variant B test */
   @Test def testGetAllCoursesVariantB {
     val onlyCourseFromTeacher = (p: Person) => p match {
       case Teacher(_, c) => Cons(c, List.Nil())
