@@ -41,6 +41,8 @@ object Streams {
 
     def iterate[A](init: => A)(next: A => A): Stream[A] = cons(init, iterate(next(init))(next))
 
+    /* ex 5 */
+
     def drop[A](stream: Stream[A])(n: Int): Stream[A] = (stream,n) match {
       case (Cons(_, tail), n) if n>0 => drop(tail())(n-1)
       case _ => stream

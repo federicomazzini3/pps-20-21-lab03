@@ -11,7 +11,7 @@ import u03.Streams.Stream
 object Task3Test {
 
   @Test
-  def testDrop: Unit = {
+  def testDrop1 {
     val s = Stream.take(Stream.iterate(0)(_ + 1))(10)
 
     assertEquals(Stream.toList(Stream.take(Stream.iterate(6)(_ + 1))(4)), Stream.toList(Stream.drop(s)(6)))
@@ -19,7 +19,7 @@ object Task3Test {
   }
 
   @Test
-  def testDropEmptyStream: Unit = {
+  def testDropEmptyStream {
     val s = Stream.empty[Int]()
     assertEquals(Stream.toList(Stream.empty[Int]()), Stream.toList(Stream.drop(s)(6)))
   }
@@ -32,7 +32,7 @@ object Task3Test {
   }
 
   @Test
-  def testFibonacci: Unit = {
+  def testFibonacci {
     var expected = Cons(0, Cons(1, Cons(1, Cons(2, Cons(3, Cons(5, Cons(8, Cons(13, List.Nil()))))))))
     var calculate = Stream.toList((Stream.take(fibs)(8)))
     assertEquals(expected, calculate);

@@ -16,7 +16,9 @@ object Task1 {
     case List.Nil() => List.Nil()
   }
 
-  def map[A, B](l: List[A])(mapper: A => B): List[B] = flatMap(l)(a => Cons(mapper(a), List.Nil()))
+  def map[A, B](l: List[A])(mapper: A => B): List[B] = {
+    flatMap(l)(a => Cons(mapper(a), List.Nil()))
+  }
 
   def filter[A](l: List[A])(pred: A => Boolean): List[A] = flatMap(l) {
     case h if pred(h) => Cons(h,Nil())

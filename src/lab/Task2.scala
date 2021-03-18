@@ -17,6 +17,7 @@ object Task2 {
     case Teacher(_, c) => Cons(c, List.Nil())
   })
 
+  /* ex 3 variant */
 
   def onlyCourseFromTeacherCondition(p: Person): List[String] = p match {
     case Teacher(_, c) => Cons(c, List.Nil())
@@ -27,8 +28,10 @@ object Task2 {
     case _ => false
   }
 
-  // Implementation with external condition
-  def getAllCoursesWithExternalCondition(personList: List[Person]): List[String] = flatMap(filter(personList)(onlyTeacherCondition))(onlyCourseFromTeacherCondition)
+  // Implementation with external function
+  def getAllCoursesWithExternalCondition(personList: List[Person]): List[String] = {
+    flatMap(filter(personList)(onlyTeacherCondition))(onlyCourseFromTeacherCondition)
+  }
 
   /* ex 4 */
 
