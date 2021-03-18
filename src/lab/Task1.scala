@@ -6,25 +6,42 @@ import u02.Optionals._
 
 object Task1 {
 
+  /*
+  ex 1.a
+   */
+
   def drop[A](l: List[A], n: Int): List[A] = l match {
     case Cons(_, t) if (n > 0) => drop(t, n - 1)
     case _ => l
   }
+
+  /*
+  ex 1.b
+   */
 
   def flatMap[A, B](l: List[A])(f: A => List[B]): List[B] = l match {
     case Cons(h, t) => append(f(h), flatMap(t)(f))
     case List.Nil() => List.Nil()
   }
 
+  /*
+  ex 1.c
+   */
   def map[A, B](l: List[A])(mapper: A => B): List[B] = {
     flatMap(l)(a => Cons(mapper(a), List.Nil()))
   }
 
+  /*
+  ex 1.d
+   */
   def filter[A](l: List[A])(pred: A => Boolean): List[A] = flatMap(l) {
     case h if pred(h) => Cons(h,Nil())
     case _ => List.Nil()
   }
 
+  /*
+  ex 2
+   */
   def max(l:List[Int]): Option[Int] = {
     @annotation.tailrec
     def _max(l:List[Int], n:Int): Option[Int] = l match{
