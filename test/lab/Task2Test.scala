@@ -9,17 +9,35 @@ import u03.Lists.List.Cons
 
 object Task2Test {
 
+
+  val mario = Student("Mario", 1998)
+  val luigi = Teacher("Luigi", "Matematica")
+  val silvia = Teacher("Silvia", "Italiano")
+  val people = List.Cons[Person](mario, Cons(luigi, Cons(silvia, List.Nil())))
+  val allCourses = List.Cons("Matematica", Cons("Italiano", List.Nil()))
+
   /* ex 3 test */
   @Test def testGetAllCourses {
-    val mario = Student("Mario", 1998)
-    val luigi = Teacher("Luigi", "Matematica")
-    val silvia = Teacher("Silvia", "Italiano")
-    val people = List.Cons[Person](mario, Cons(luigi, Cons(silvia, List.Nil())))
-    val allCourses = List.Cons("Matematica", Cons("Italiano", List.Nil()))
-
     assertEquals(allCourses, getAllCourses(people))
-    assertEquals(allCourses, getAllCoursesWithExternalCondition(people))
     assertEquals(List.Nil(), getAllCourses(List.Cons(mario, List.Nil())))
+  }
+
+  @Test def testGetAllCoursesVariantA {
+
+    assertEquals(allCourses, getAllCoursesWithExternalCondition(people))
+  }
+
+  @Test def testGetAllCoursesVariantB {
+    val onlyCourseFromTeacher = (p: Person) => p match {
+      case Teacher(_, c) => Cons(c, List.Nil())
+    }
+
+    val onlyTeacher = (person: Person) => person match {
+      case Teacher(name, course) => true
+      case _ => false
+    }
+
+    assertEquals(allCourses, getAllCoursesWithInputCondition(people)(onlyTeacher)(onlyCourseFromTeacher))
   }
 
   /* ex 4 test */
